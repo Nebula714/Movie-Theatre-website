@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>Movie Theatre Website</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
+    <!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="container" style="margin-top: 20px">
+    <div>
+        <a class="btn btn-primary" data-toggle="modal" data-target="#addModal">Add movie</a>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Add Movie</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="InputTitle">title</label>
+                            <input type="text" class="form-control" id="InputTitle"
+                                   placeholder="title">
+                        </div>
+                        <div class="form-group">
+                            <label for="InputPoster">poster_url</label>
+                            <input type="text" class="form-control" id="InputPoster"
+                                   placeholder="poster">
+                        </div>
+                        <div class="form-group">
+                            <label for="InputDuration">duration</label>
+                            <input type="number" class="form-control" id="InputDuration"
+                                   placeholder="duration">
+                        </div>
+                        <div class="form-group">
+                            <label for="InputGrade">grade</label>
+                            <input type="text" class="form-control" id="InputGrade"
+                                   placeholder="grade">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">cancel</button>
+                    <button type="button" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <table class="table table-bordered table-hover" style="margin-top: 10px">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>title</th>
+            <th>poster_url</th>
+            <th>duration</th>
+            <th>grade</th>
+            <th>operation</th>
+        </tr>
+        </thead>
+        <tbody id="tbody">
+        </tbody>
+    </table>
+
+    <!-- Modal -->
+    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Edit Movie</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="InputTitle">title</label>
+                            <input type="text" class="form-control" id="InputTitle"
+                                   placeholder="title">
+                        </div>
+                        <div class="form-group">
+                            <label for="InputPoster">poster_url</label>
+                            <input type="text" class="form-control" id="InputPoster"
+                                   placeholder="poster">
+                        </div>
+                        <div class="form-group">
+                            <label for="InputDuration">duration</label>
+                            <input type="number" class="form-control" id="InputDuration"
+                                   placeholder="duration">
+                        </div>
+                        <div class="form-group">
+                            <label for="InputGrade">grade</label>
+                            <input type="text" class="form-control" id="InputGrade"
+                                   placeholder="grade">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">cancel</button>
+                    <button type="button" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+    let dataList = [
+        {ID: 1, title: "aaa", poster_url: null, duration: 100, grade: "child"},
+        {ID: 2, title: "bbb", poster_url: null, duration: 100, grade: "child"},
+        {ID: 3, title: "ccc", poster_url: null, duration: 100, grade: "child"},
+    ];
+    let b = document.getElementById("tbody");
+    for (let i of dataList) {
+        let o = document.createElement("td");
+        let a1 = document.createElement("a");
+        a1.className = "btn btn-primary btn-xs";
+        a1.innerText = "edit";
+        a1.dataset.toggle = "modal";
+        a1.dataset.target="#editModal";
+        o.appendChild(a1);
+        let a2 = document.createElement("a");
+        a2.className = "btn btn-primary btn-xs";
+        a2.innerText = "delete";
+        a2.style.marginLeft = "5px";
+        o.appendChild(a2);
+
+        console.log(i);
+
+        let tr = document.createElement("tr");
+        let td_id = document.createElement("td");
+        td_id.innerText = i.ID;
+        tr.appendChild(td_id);
+
+        let td_title = document.createElement("td");
+        td_title.innerText = i.title;
+        tr.appendChild(td_title);
+
+        let td_poster = document.createElement("td");
+        td_poster.innerText = i.poster_url;
+        tr.appendChild(td_poster);
+
+        let td_duration = document.createElement("td");
+        td_duration.innerText = i.duration;
+        tr.appendChild(td_duration);
+
+        let td_grade = document.createElement("td");
+        td_grade.innerText = i.grade;
+        tr.appendChild(td_grade);
+
+        tr.appendChild(o);
+        b.appendChild(tr);
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<div style="width: 500px; height: 300px; margin-right: auto; margin-left: auto;">
+    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="2000">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+            <div class="item active">
+                <a href="/about_us/movies/detail?id={{ movies0.id }}"><img src="{{ movies0.url }}"
+                     alt="https://www.bing.com/th?id=OSK.01a331a26f1472e1f9428efe5faf89e3&w=116&h=156&c=7&o=6&dpr=1.4&pid=SANGAM"
+                     class="img-responsive" style="width: 500px; height: 280px"></a>
+            </div>
+            <div class="item">
+                <a href="/about_us/movies/detail?id={{ movies1.id }}"><img src="{{ movies1.url }}"
+                     alt="https://www.bing.com/th?id=OSK.01a331a26f1472e1f9428efe5faf89e3&w=116&h=156&c=7&o=6&dpr=1.4&pid=SANGAM"
+                     class="img-responsive" style="width: 500px; height: 280px"></a>
+                <div class="carousel-caption">
+                </div>
+            </div>
+            <div class="item">
+                <a href="/about_us/movies/detail?id={{ movies2.id }}"><img src="{{ movies2.url }}"
+                     alt="https://www.bing.com/th?id=OSK.01a331a26f1472e1f9428efe5faf89e3&w=116&h=156&c=7&o=6&dpr=1.4&pid=SANGAM"
+                     class="img-responsive" style="width: 500px; height: 280px"></a>
+                <div class="carousel-caption">
+                </div>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+{% extends 'a.html' %}
+
+{% block content %}
+    <body>
+    <div class="container">
+        {% include 'carousel.html' %}
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="text-center">About us</h3>
+            </div>
+
+            <div class="panel-body">
+                <strong class="col-md-offset-4 col-lg-offset-4 col-xl-offset-4">we offer a range of training services and products, including</strong>
+                <ul class = "col-md-offset-4 col-lg-offset-4 col-xl-offset-4">
+                    <li>Customized training playing basketball</li>
+                    <li>Training for origami design</li>
+                    <li>Rent movies and TV-drama series</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    </body>
+{% endblock %}
