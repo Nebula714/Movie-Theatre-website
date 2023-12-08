@@ -1,6 +1,6 @@
 # Movie Theatre Website
 
-####Description
+#### Description
 
 The movie theatre website is designed to display movie menu and movie detail information, and provide booking service.
 
@@ -11,12 +11,12 @@ The backend framework of the project is Django. The frontend framework is Bootst
 #### Website display
 The following is some pages of the website.
 
-######Introduction page
+###### Introduction page
 
 ![](./templates/image/aboutus.jpg)
-######Movie Menu
+###### Movie Menu
 
 ![](./templates/image/menu.jpg)
-######Movie detail
+###### Movie detail
 
 ![](./templates/image/detail.jpg)
